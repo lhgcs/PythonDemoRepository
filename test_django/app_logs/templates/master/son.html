@@ -1,0 +1,47 @@
+{% extends "master/parent.html" %}       {# 导入模板文件 #}
+<h2>1222222222222221</h2>
+{#{% block title %}#}
+{##}
+{#{% endblock %}#}
+{##}
+{#{% block title %}用户管理{% endblock %}  {# 标题 #}
+
+{#{% load my_simple_tag %}#}
+
+{% block title %}  {# 内容 #}
+    <h1>用户管理</h1>
+    <label style="color: red">15555555555511</label>
+{#    {% func 1,2,3 %}#}
+
+    <form action="app1/login/" method="get">
+    a: <input type="text" name="a"> <br>
+    b: <input type="text" name="b"> <br>
+    <input type="submit" value="提交">
+    </form>
+
+
+
+    <form method='post'>
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="提交">
+    </form>
+
+    <ul>
+        {% for i in u %}
+            <li>{{ i }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
+
+{#{% block css %}     {# 自定义css #}
+{#    <style>#}
+{#        body{#}
+{#            background-color: white;#}
+{#        }#}
+{#    </style>#}
+{#{% endblock %}#}
+{##}
+{#{% block js %}      {# 自定义js #}
+{#    <script></script>#}
+{#{% endblock %}#}

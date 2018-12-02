@@ -1,0 +1,50 @@
+{% extends "master/parent.html" %}       {# 导入模板文件 #}
+
+{% block title %}
+
+    <h1>用户管理</h1>
+    <label style="color: red">11111111111111</label>
+
+    <form action="app1/login/" method="get">
+    a: <input type="text" name="a"> <br>
+    b: <input type="text" name="b"> <br>
+    <input type="submit" value="提交">
+    </form>
+
+
+    <label style="color: red">2222222222222</label>
+{#    模板标签url根据app_logs中命名为form的URL模式生成连接#}
+    <form action="{% url 'app_logs:mypost123' %}" method="post">
+        {% csrf_token %}
+{#        模板标签#}
+        {{ form.as_p }}
+{#        模板变量    as_p 以段落格式渲染表单元素#}
+        <button type="submit" >button</button>
+    </form>
+
+
+    <label style="color: red">333333333333</label>
+    <form action="{% url 'app_logs:forms' %}" method='post'>
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="提交">
+    </form>
+
+    <ul>
+        {% for i in context %}
+            <li>{{ i }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
+
+{#{% block css %}     {# 自定义css #}
+{#    <style>#}
+{#        body{#}
+{#            background-color: white;#}
+{#        }#}
+{#    </style>#}
+{#{% endblock %}#}
+{##}
+{#{% block js %}      {# 自定义js #}
+{#    <script></script>#}
+{#{% endblock %}#}

@@ -1,0 +1,50 @@
+{% extends "master/parent.html" %}       {# 导入模板文件 #}
+
+{% block title %}
+
+    <ul>
+        {% for i in topic %}
+{#            {{ 变量名 }}#}
+            <li> {{ i }} </li>
+            <li>
+{#                <a href="{% url 'app_logs:app_logs_index_id' i.id %}" > {{ i }}</a>#}
+            </li>
+        {% endfor %}
+    </ul>
+
+    <h1>用户管理</h1>
+    <label style="color: red">888881111</label>
+{#    {% func 1,2,3 %}#}
+
+    <form action="app1/login/" method="get">
+    a: <input type="text" name="a"> <br>
+    b: <input type="text" name="b"> <br>
+    <input type="submit" value="提交">
+    </form>
+
+
+
+    <form method='post'>
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="提交">
+    </form>
+
+    <ul>
+        {% for i in u %}
+            <li>{{ i }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
+
+{#{% block css %}     {# 自定义css #}
+{#    <style>#}
+{#        body{#}
+{#            background-color: white;#}
+{#        }#}
+{#    </style>#}
+{#{% endblock %}#}
+{##}
+{#{% block js %}      {# 自定义js #}
+{#    <script></script>#}
+{#{% endblock %}#}
