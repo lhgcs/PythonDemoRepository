@@ -1,0 +1,426 @@
+
+QWidget {
+    background:rgb(255,255,255);
+}
+QLabel {
+    color:rgb(0,0,0);
+    background:rgba(255,255,255,0);
+}
+
+QLabel#labelTitle {
+    font:28px;
+    color:rgb(255,255,255);
+    background:rgba(0,0,0,0);
+    border:none;
+}
+
+QLabel#Toast {
+    font:26px;
+    color:rgb(255,255,255);
+    background:rgba(0,163,229,125);
+    border-radius:12px;
+    border:none;
+    padding:20px;
+}
+
+QWidget#baseWidget, #baseStackedWidget {
+    background:rgb(255,255,255);
+}
+QWidget#MainWindow {
+    border-image:url(/home/ico/main.png);
+}
+QWidget#DialogInstance {
+    border-image:url(/home/ico/dialog.png);
+}
+QWidget[objectName=DialogInstance] QLabel{
+    font-size: 25px;
+    color:rgb(0,0,0);
+    background:rgba(255,255,255,0);
+}
+QWidget[objectName=DialogInstance] QPushButton{
+    color:rgba(0,0,0,0);
+    background:rgba(255,255,255,0);
+}
+QWidget[objectName=Indicator] {
+    color:rgba(0,0,0,0);
+    background:rgba(0,255,0,255);
+}
+QWidget#ParamterWidget {
+    font-size:25px;
+    background-color:rgb(56,73,89);
+}
+QWidget[objectName=ParamterWidget] QPushButton {
+    color:rgb(255,255,255);
+    background: rgb(239,61,87);
+    padding:8px;
+}
+QWidget[objectName=ParamterWidget] QPushButton:pressed {
+    color:rgb(255,255,255);
+    background: rgb(239,201,70);
+    padding:8px;
+    padding-left:3px;
+    padding-top:3px;
+}
+
+
+QWidget#LabelAndEdit {
+    font-size:25px;
+    background-color:rgba(0,0,0,0);
+}
+QWidget[objectName=LabelAndEdit] QLabel {
+    font-size:25px;
+    border: none;
+    color:rgb(239,201,70);
+    background: rgba(0,0,0,0);
+}
+QWidget[objectName=LabelAndEdit] QLineEdit {
+    font-size:25px;
+    border:0px solid white;
+}
+
+/*
+登录界面
+min-width:5px;
+min-height:5px;
+max-width:500px;
+max-height:500px;
+*/
+QWidget#VirtualKeyboard {
+    font-size: 25px;
+    background-color:rgba(0,0,0,0);
+}
+QWidget[objectName=VirtualKeyboard] QPushButton {
+    color:rgb(255,255,255);
+    background: rgba(0,0,0,0);
+    border:1px solid white;
+    padding:8px;
+}
+QWidget[objectName=VirtualKeyboard] QPushButton:pressed {
+    background: rgb(239,201,70);
+    padding:8px;
+    padding-right:4px;
+    padding-bottom:4px;
+}
+
+
+QWidget#Login {
+    background-color:rgb(56,73,89);
+}
+QWidget[objectName=Login] QLabel {
+    font-size: 25px;
+    border: none;
+    color:rgb(255,255,255);
+    background: rgba(0,0,0,0);
+}
+QWidget[objectName=Login] QLineEdit {
+    font-size: 25px;
+    color:rgb(0,0,0);
+    background: rgba(255,255,255,255);
+    border:0px solid white;
+}
+QWidget[objectName=Login] QPushButton {
+    font-size: 25px;
+    color:rgb(255,255,255);
+    background: rgba(0,0,0,0);
+    border:1px solid white;
+    padding:8px;
+}
+QWidget[objectName=Login] QPushButton:pressed {
+    color:rgb(255,255,255);
+    background: rgb(239,201,70);
+    padding:8px;
+    padding-right:4px;
+    padding-bottom:4px;
+}
+QWidget[objectName=Login] QCheckBox {
+    font-size: 25px;
+    background: rgba(0,0,0,0);
+}
+QWidget[objectName=Login] QCheckBox::indicator {
+    width:48px;
+    height:48px;
+}
+QWidget[objectName=Login] QCheckBox::indicator:checked {
+    border-image:url(/home/ico/eye_hide.png);
+}
+QWidget[objectName=Login] QCheckBox::indicator:unchecked {
+    border-image:url(/home/ico/eye_show.png);
+}
+
+QWidget#SettingWidget {
+    background-color:rgb(56,73,89);
+}
+QWidget[objectName=SettingWidget] QLabel {
+    font-size: 25px;
+    border: none;
+    color:rgb(255,255,255);
+    background: rgba(0,0,0,0);
+}
+QWidget[objectName=SettingWidget] QLineEdit {
+    font-size: 25px;
+    color:rgb(255,255,255);
+    background: rgba(0,0,0,100);
+    border:1px solid white;
+    padding-left:10px;
+}
+QWidget[objectName=SettingWidget] QRadioButton {
+    font-size: 25px;
+    color:white;
+    background: rgba(0,0,0,0);
+}
+QWidget[objectName=SettingWidget] QRadioButton::indicator {
+    width:50px;
+    height:50px;
+}
+QWidget[objectName=SettingWidget] QRadioButton::indicator:checked {
+    border-image:url(/home/ico/checkYes.png);
+}
+QWidget[objectName=SettingWidget] QRadioButton::indicator:unchecked {
+    border-image:url(/home/ico/checkNo.png);
+}
+QWidget[objectName=SettingWidget] QCheckBox {
+    font-size: 25px;
+    color:white;
+    background: rgba(0,0,0,0);
+}
+QWidget[objectName=SettingWidget] QCheckBox::indicator {
+    width:50px;
+    height:50px;
+}
+QWidget[objectName=SettingWidget] QCheckBox::indicator:checked {
+    border-image:url(/home/ico/checkYes.png);
+}
+QWidget[objectName=SettingWidget] QCheckBox::indicator:unchecked {
+    border-image:url(/home/ico/checkNo.png);
+}
+QWidget[objectName=SettingWidget] #settingBtnClose {
+    font-size: 25px;
+    color:white;
+    background: rgb(239,61,87);
+    border:1px solid white;
+    border-radius: 20px;
+    padding:8px;
+}
+QWidget[objectName=SettingWidget] #settingBtnClose:pressed {
+    color:rgb(255,255,255);
+    background:rgb(239,201,70);
+    border:1px solid rgb(56,73,89);
+    padding-left:3px;
+    padding-top:3px;
+}
+
+
+/*
+状态栏
+*/
+QWidget[objectName=StatusBar] {
+    background-color:rgb(0,163,229);
+}
+QWidget[objectName=StatusBar] QLabel{
+    font-size: 22px;
+    border:none;
+    color: rgb(255,255,255);
+    background-color:rgba(0,0,0,0);
+}
+QWidget[objectName=StatusBar] QPushButton{
+    font-size: 22px;
+    border:none;
+    color: rgb(255,255,255);
+    background-color:rgba(0,0,0,0);
+}
+
+/*
+补货界面
+*/
+QWidget#AddWare {
+    background-color:rgb(56,73,89);
+}
+QWidget[objectName=AddWare] QCheckBox {
+    padding-left:0px;
+    font-size: 30px;
+    color: white;
+    background: rgba(0,0,0,0);
+}
+QWidget[objectName=AddWare] QCheckBox::indicator {
+    width:50px;
+    height:50px;
+}
+QWidget[objectName=AddWare] QCheckBox::indicator:checked {
+    border-image:url(/home/ico/checkYes.png);
+}
+QWidget[objectName=AddWare] QCheckBox::indicator:unchecked {
+    border-image:url(/home/ico/checkNo.png);
+}
+QWidget[objectName=AddWare] QPushButton {
+    font-size: 25px;
+    color:rgb(255,255,255);
+    background: rgba(0,0,0,0);
+    border:1px solid white;
+}
+QWidget[objectName=AddWare] QPushButton:pressed {
+    background: rgba(255,255,255,80);
+    padding-left:3px;
+    padding-top:3px;
+}
+
+/*
+支付界面
+*/
+QWidget[objectName=PayWidget] {
+    background: rgba(0,0,0,0);
+}
+QWidget[objectName=PayWidget] QPushButton {
+    font-size: 25px;
+    color:rgb(255,255,255);
+    background: rgba(255,0,0,255);
+    border:1px solid white;
+    border-radius: 25px;
+}
+QWidget[objectName=PayWidget] QPushButton:hover {
+    color:rgb(255,0,0);
+    background: rgba(255,255,255,255);
+    border:2px solid rgb(255,0,0);
+}
+QWidget[objectName=PayWidget] QPushButton:pressed {
+    color:rgb(255,0,0);
+    background: rgba(255,255,255,255);
+    border:2px solid rgb(255,0,0);
+    padding-left:3px;
+    padding-top:3px;
+}
+QWidget[objectName=PayWidget] #label_time {
+    font-size: 25px;
+    color:rgb(255,0,0);
+    background: rgba(255,255,255,0);
+}
+QWidget[objectName=PayWidget] #labelTip {
+    font-size: 25px;
+    color:rgb(0,0,0);
+    background: rgba(255,255,255,0);
+}
+
+/*
+键盘
+*/
+QWidget[objectName=NumKeyboard] QLineEdit {
+    font-size: 35px;
+    color:#848484;
+    background: #F6F6F6;
+    border:2px solid #bdbdbd;
+    border-radius: 30px;
+}
+QWidget[objectName=NumKeyboard] QToolButton {
+    font-size: 35px;
+    color:#848484;
+    background: #F6F6F6;
+    border:2px solid #bdbdbd;
+    border-radius: 20px;
+}
+QWidget[objectName=NumKeyboard] QToolButton:pressed{
+    font-size: 40px;
+    color:rgb(255,255,255);
+    background: rgba(239,61,87,200);
+}
+QWidget[objectName=NumKeyboard] QToolButton:hover{
+    font-size: 40px;
+}
+
+
+QWidget#AddOrReduce {
+    background-color:rgb(132,192,97);
+    border:1px solid rgb(255,255,255);
+}
+QWidget[objectName=AddOrReduce] QLabel {
+    font-size: 30px;
+    border: none;
+    color:rgb(0,0,0);
+    background: rgba(0,0,0,0);
+}
+QWidget[objectName=AddOrReduce] QPushButton {
+    font-size: 50px;
+    border:1px solid rgb(255,255,255);
+    color:rgb(239,61,87);
+    background: rgba(0,0,0,0);
+}
+
+/**********按钮**********/
+/*
+QToolButton{
+    font-size: 22px;
+    border: none;
+    color: rgb(29,133,165);
+    background: transparent;
+    qproperty-toolButtonStyle: ToolButtonTextUnderIcon;
+}
+QToolButton:hover{
+    color: rgb(255,233,0 );
+}
+QToolButton#btnMoney{
+    qproperty-icon: url("/home/ico/pay1.png");
+    qproperty-iconSize: 200px 200px;
+    qproperty-toolButtonStyle: ToolButtonTextBesideIcon;
+}
+QToolButton#btnMobile{
+    qproperty-icon: url("/home/ico/pay2.png");
+    qproperty-iconSize: 200px 200px;
+    qproperty-toolButtonStyle: ToolButtonTextBesideIcon;
+}
+QToolButton#btnCard{
+    qproperty-icon: url("/home/ico/pay3.png");
+    qproperty-iconSize: 200px 200px;
+    qproperty-toolButtonStyle: ToolButtonTextBesideIcon;
+}
+*/
+/**********按钮**********/
+QPushButton {
+    font-size: 24px;
+    border: none;
+    color: rgb(29,133,165);
+    background: transparent;
+}
+QPushButton:hover {
+    color: rgb(36,164,206);
+}
+QPushButton:pressed {
+    padding-left:3px;
+    padding-top:3px;
+}
+
+QPushButton#btnNormal {
+    font-size: 24px;
+    border:2px solid rgb(29,133,165);
+    color: rgb(29,133,165);
+    background: transparent;
+}
+QPushButton#btnNormal:pressed {
+    padding-left:3px;
+    padding-top:3px;
+    color: rgb(255,255,255);
+    background:rgb(29,133,165);
+}
+
+/*不限制作用域，只要控件名称为objectName时设置该样式
+*/
+
+QTableView {
+    font-size:24px;
+    color: white;                                       /*表格内文字颜色*/
+    gridline-color: rgb(255,255,255);                   /*表格内框颜色*/
+    background-color: rgba(0,0,0,0);                    /*表格内背景色*/
+    alternate-background-color: rgb(68,182,159);
+    selection-color: rgb(0,0,0);                        /*选中区域的文字颜色*/
+    selection-background-color: rgb(239,201,70);        /*选中区域的背景色*/
+    border: 2px groove gray;
+    border-radius: 0px;
+}
+
+QHeaderView {
+    color: black;
+    font: bold 24px;/*16pt*/
+    background-color: rgb(255,255,255);/*设置表头空白区域背景色*/
+    border: 0px solid rgb(144, 144, 144);
+    border-left-color:rgba(255, 255, 255, 0);
+    border-top-color: rgba(255, 255, 255, 0);
+    border-radius:0px;
+    min-height:29px;
+}

@@ -1,0 +1,5 @@
+#ifndef CJSONHELPER_H
+#define CJSONHELPER_H
+
+#endif // CJSONHELPER_H
+

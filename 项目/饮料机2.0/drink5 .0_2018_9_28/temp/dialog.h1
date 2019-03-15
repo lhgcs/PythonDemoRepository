@@ -1,0 +1,71 @@
+#ifndef DIALOG_H
+#define DIALOG_H
+
+#include <QObject>
+#include <QWidget>
+#include <QLabel>
+#include <QPushButton>
+#include <QStyleOption>
+#include <QPainter>
+#include <QTimer>
+#include "my_define.h"
+
+class Dialog : public QWidget
+{
+    Q_OBJECT
+public:
+    Dialog(QString str, QWidget *parent=0);
+    ~Dialog()
+    {
+        delete label;
+        delete button;
+        delete timer;
+    }
+    bool shake_flag;
+    void show()
+    {
+        this->setVisible(true);
+        this->raise();
+        timer->start(11000);
+    }
+    void close()
+    {
+        timer->stop();
+        this->hide();
+    }
+    void setText(QString str)
+    {
+        if(str.isEmpty())
+        {
+            label->setText("<font color=red  size=3>请输入正确的商品编号</font>");
+        }
+        else
+        {
+            label->setText(str);
+        }
+    }
+    void move_to_centre()
+    {
+        this->move((WIDTH-400)/2,(HEIGHT-240)/2);
+    }
+protected:
+    //如果要子类化一个QWidget，为了能够使用样式表，则需要提供paintEvent事件。
+    //这是因为QWidget的paintEvent()是空的，而样式表要通过paint被绘制到窗口中。
+    void paintEvent(QPaintEvent *)
+    {
+        QStyleOption opt;
+        opt.init(this);
+        QPainter p(this);
+        style()->drawPrimitive(QStyle::PE_Widget, &opt, &p, this);
+    }
+    void closeEvent(QCloseEvent *)
+    {
+        shake_flag=false;
+    }
+private:
+    QLabel *label;
+    QPushButton *button;
+    QTimer *timer;
+};
+
+#endif // DIALOG_H

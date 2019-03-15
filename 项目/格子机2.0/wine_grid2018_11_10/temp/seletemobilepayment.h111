@@ -1,0 +1,141 @@
+#ifndef SELETEMOBILEPAYMENT_H
+#define SELETEMOBILEPAYMENT_H
+
+#include <QWidget>
+#include <QToolButton>
+#include <QLineEdit>
+#include <QHBoxLayout>
+#include "numinputdialog.h"
+#include "basewidget.h"
+#include <QDebug>
+#include <QEvent>
+#include "app.h"
+
+#include <QStyleOption>
+
+#include "httprequest.h"
+#include "paymentresult.h"
+#include "dialog.h"
+#include "Sqlite/sqlitegoods.h"
+
+#include <QAction>
+
+class SeleteMobilePayment : public QWidget
+{
+    Q_OBJECT
+public:
+    explicit SeleteMobilePayment(QWidget *parent = 0);
+    ~SeleteMobilePayment(){
+        delete lineEdit;
+        delete btnWeixin;
+        delete btnAlipay;
+        delete pTrailingAction;
+        delete hl;
+        delete vl;
+        delete numInputDialog;
+    }
+    HttpRequest* httpRequest;
+    PaymentResult *pay;
+    SqliteGoods *sql;
+    int currentBox;
+signals:
+    void destroy_widget();
+
+private slots:
+    void numInput_slot(int value){
+        if(httpRequest->isBusy){
+            new Dialog("请等待上一单交易完成再购买");
+        }
+        else{
+            switch (value){
+                case 11:{
+                    lineEdit->setFocus();
+                    if(lineEdit->text().length()<2){
+                        new Dialog("购买量10ML起");
+                        return;
+                    }
+                    int remain=0;
+                    if(sql){
+                        remain=sql->get_table_remain_data(QString::number(currentBox));
+                    }
+                    QString buy=lineEdit->text();
+                    if(buy.toInt()>remain){
+                        QString str=QString("已超过最大购买量%1ML\n请重新输入").arg(QString::number(remain));
+                        new Dialog(str);
+                    }
+                    else{
+                        this->numInputDialog->hide();
+                    }
+                    break;
+                }
+                case 10:{
+                    QString str=this->lineEdit->text();
+                    this->lineEdit->setText(str.left(str.length()-1));//chop(1)
+                    break;
+                }
+                default:this->lineEdit->setText(this->lineEdit->text().append(value+48));
+                        break;
+            }
+        }
+    }
+    void btnWeixin_slot(){
+        if(lineEdit->text().isEmpty()){
+            new Dialog("请输入购买酒的数量");
+            return;
+        }
+        if(httpRequest){
+            httpRequest->send_Request(App::buyWeixin,lineEdit->text());
+            pay->loading();
+            lineEdit->clear();
+        }
+    }
+    void btnAlipay_slot(){
+        if(lineEdit->text().isEmpty()){
+            new Dialog("请输入购买酒的数量");
+            return;
+        }
+        if(httpRequest){
+            httpRequest->send_Request(App::buyAlipay,lineEdit->text());
+            pay->loading();
+            lineEdit->clear();
+        }
+    }
+    void btnClose_slot(){
+        this->close();
+        emit destroy_widget();
+    }
+    void clear_slot(bool value){
+        lineEdit->clear();
+        qDebug()<<value;
+    }
+
+private:
+    QPushButton *btnClose;
+    QLineEdit *lineEdit;
+    NumInputDialog *numInputDialog;
+    QToolButton *btnWeixin,*btnAlipay;
+    QHBoxLayout *hl;
+    QVBoxLayout *vl;
+
+    QAction *pTrailingAction;
+
+protected:
+    bool eventFilter(QObject *obj, QEvent *event){
+        if(event->type()==QEvent::MouseButtonPress){
+            if(obj==lineEdit){
+                lineEdit->clear();
+                numInputDialog->show();
+                return true;
+            }
+        }
+        return QWidget::eventFilter(obj,event);
+    }
+    void paintEvent(QPaintEvent *){
+         QStyleOption opt;
+         opt.init(this);
+         QPainter p(this);
+         style()->drawPrimitive(QStyle::PE_Widget, &opt, &p, this);
+     }
+};
+
+#endif // SELETEMOBILEPAYMENT_H

@@ -1,0 +1,50 @@
+#include "dialog.h"
+#include <QBoxLayout>
+#include <QDebug>
+
+Dialog::Dialog(QString str,QWidget *parent):QWidget(parent)
+{
+    this->setWindowFlags(Qt::FramelessWindowHint|Qt::WindowStaysOnTopHint);//会让它置于所有程序的顶层
+//    this->setAttribute(Qt::WA_DeleteOnClose,true);
+    this->setObjectName("Dialog");
+    this->setStyleSheet(
+        "#Dialog{background-color:rgb(232,241,252);border:2px dashed rgb(111,156,207);border-radius: 5px;}"
+        "QPushButton{background-color:rgb(255,255,255);color:rgb(51,51,51); border:1px solid rgb(111,156,207);border-radius: 5px;}"
+        "QLabel{background-color:rgba(0,0,0,0);}");
+
+    this->resize(400,240);
+    this->move((WIDTH-400)/2,(HEIGHT-240)/2);
+    label=new QLabel(this);
+    label->setFixedSize(360,180);
+    label->setAlignment(Qt::AlignCenter);
+    if(str==NULL)
+    {
+        label->setText("<font color=red  size=3>请输入正确的商品编号</font>");
+    }
+    else
+    {
+        label->setText(str);
+    }
+    button=new QPushButton("确定",this);
+    button->setFixedSize(100,40);
+    QObject::connect(button,SIGNAL(clicked(bool)),this,SLOT(close()));
+
+    QHBoxLayout *h=new QHBoxLayout;
+    h->addStretch();
+    h->addWidget(button);
+    h->addStretch();
+    QVBoxLayout *v=new QVBoxLayout;
+    v->addSpacing(10);
+    v->addWidget(label);
+    v->addSpacing(5);
+    v->addLayout(h);
+    v->addSpacing(10);
+    setLayout(v);
+
+    timer=new QTimer(this);
+    timer->setSingleShot(true);
+    QObject::connect(timer, SIGNAL(timeout()), this, SLOT(close()));
+    this->hide();
+    shake_flag=false;
+}
+

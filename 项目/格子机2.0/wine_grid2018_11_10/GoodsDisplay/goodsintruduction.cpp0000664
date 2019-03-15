@@ -1,0 +1,64 @@
+#include "goodsintruduction.h"
+
+int GoodsIntruduction::box=0;
+float GoodsIntruduction::d=1;
+
+GoodsIntruduction::GoodsIntruduction(QWidget *parent) : QWidget(parent)
+{
+    weightTemp=0;
+    typeTemp=0;
+
+    //this->setMaximumSize(App::DeskWidth,App::DeskHeight);
+    this->setFixedSize(App::DeskWidth-20,620);
+    labelPicture=new QLabel(this);
+    labelPicture->setAlignment(Qt::AlignCenter);
+    labelPicture->setScaledContents(true);
+    labelPresent=new QLabel(this);
+    labelPresent->setAlignment(Qt::AlignCenter);
+    labelPicture->setFixedSize(300,400);
+    labelPresent->setFixedSize(400,150);
+    labelPresent->setObjectName("labelPresent");
+    labelPicture->setAlignment(Qt::AlignHCenter|Qt::AlignBottom);
+    labelPresent->setAlignment(Qt::AlignHCenter|Qt::AlignTop);
+
+    seleteBuy=new SeleteBuy(this);
+    seleteBuy->setMaximumSize(App::DeskWidth-510,620);
+    seleteBuy->setMinimumHeight(500);
+
+    QVBoxLayout *vl=new QVBoxLayout();
+    vl->setContentsMargins(0,0,0,0);
+    vl->addStretch(1);
+    vl->addWidget(labelPicture,1,Qt::AlignCenter);
+    vl->addWidget(labelPresent,1,Qt::AlignCenter);
+    vl->addStretch(1);
+
+    hl=new QHBoxLayout(this);
+//    hl->setSpacing(10);//设置间距
+//    hl->setMargin(20);
+    hl->setContentsMargins(50,5,50,5);
+    hl->addStretch(1);
+    hl->addLayout(vl);
+    hl->addWidget(seleteBuy);
+    hl->addStretch(1);
+    this->setLayout(hl);
+    this->show();
+
+    httpRequest=new HttpRequest(this);
+    QObject::connect(httpRequest, SIGNAL(data(int,int,int,float)),this,SLOT(httpRequest_slot(int,int,int,float)));
+
+    serialPutOut=new SerialPutOut;
+    QObject::connect(serialPutOut, SIGNAL(serial_data(int,int)),this,SLOT(serialPutOut_slot(int,int)));
+
+    seleteBuy->httpRequest=httpRequest;
+    seleteBuy->paymentResult->set_serial(serialPutOut);
+    seleteBuy->serialPutOut=serialPutOut;
+
+    timer=new QTimer(this);
+    timer->setInterval(5000);
+    QObject::connect(timer,SIGNAL(timeout()),this,SLOT(timer_slot()));
+
+    timer_flag=WAIT_NO;
+    timer_loop_cnt=0;
+    httpRequest->send_time();
+}
+

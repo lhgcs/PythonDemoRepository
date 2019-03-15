@@ -1,0 +1,371 @@
+
+QWidget#MainWindow {
+    border-image:url("/home/ico/wine");
+}
+QWidget#GoodsTable {
+    background: transparent;
+}
+QWidget#SeleteBuy {
+    background-color:rgb(0,0,0);
+}
+QWidget#SeletePayment {
+    border-image:url("/home/ico/wine2.png");
+}
+QWidget#SettingWidget {
+    background-color:rgb(45,61,87);
+}
+QWidget#SettingDialog {
+    font:50px;
+    color: rgb(0,0,0);
+    background-color:rgb(104,119,133);
+}
+QWidget#SystemInfo {
+    background-color:rgb(255,255,255);
+}
+QWidget#LoadingQrcode {
+    background-color:rgba(77,77,77,200);
+}
+
+QLabel {
+    font-size: 24px;
+    color: rgb(255,255,255);
+    background: transparent;
+}
+
+
+QLabel#SystemInfo {
+    font-size: 24px;
+    color: rgb(36,164,206);
+    background-color:rgb(255,255,255);
+}
+QLabel#labelDialog{
+    font-size: 24px;
+    color: rgb(36,164,206);
+    background: transparent;
+}
+QLabel#labelTip {
+    font-size: 26px;
+    color: rgb(36,164,206);
+    background: transparent;
+    padding-left:15px;
+}
+QLabel#Toast {
+    font:26px;
+    color:rgb(255,255,255);
+    background:rgba(239,61,87,200);
+    border-radius:10px;
+    border:none;
+    padding:20px;
+}
+/*
+background:qlineargradient(spread:pad,x1:1,y1:0,x2:0,y2:0,stop:0 rgb(249,50,74),stop:0.5 rgb(249,56,85),stop:1 rgb(253,86,99));
+background:qlineargradient(spread:pad,x1:1,y1:0,x2:0,y2:0,stop:0 #0973AB,stop:1 #098DCE);}
+background:rgba(0,163,229,125);
+QLabel#Toast {
+    font-size: 28px;
+    position:relative;
+    border-radius:5px;
+    color:#FFFFFF;
+    background-color:#6450616d;
+    border:1px solid #50616d;
+    padding:15px;
+}
+
+QLabel#Toast:before,#Toast:after{
+    display:block;
+    border-width:20px;
+    position:absolute; bottom:-40px;
+    left:100px;
+    border-style:solid dashed dashed;
+    border-color:#09F transparent transparent;
+    font-size:0;
+    line-height:0;
+}
+QLabel#Toast:after{
+    bottom:-33px;
+    border-color:#FFF transparent transparent;
+}
+*/
+QLabel#labelCard {
+    font-size: 28px;
+    color: rgb(36,164,206);
+    background: transparent;
+}
+
+QLabel#label_white {
+    background-color:rgb(255,255,255);
+}
+
+/**********按钮**********/
+QToolButton{
+    font-size: 22px;
+    border: none;
+    color: rgb(29,133,165);
+    background: transparent;
+    qproperty-toolButtonStyle: ToolButtonTextUnderIcon;
+}
+QToolButton:hover{
+    color: rgb(255,233,0 );
+}
+QToolButton#btnMoney{
+    qproperty-icon: url("/home/ico/pay1.png");
+    qproperty-iconSize: 200px 200px;
+    qproperty-toolButtonStyle: ToolButtonTextBesideIcon;
+}
+QToolButton#btnMobile{
+    qproperty-icon: url("/home/ico/pay2.png");
+    qproperty-iconSize: 200px 200px;
+    qproperty-toolButtonStyle: ToolButtonTextBesideIcon;
+}
+QToolButton#btnCard{
+    qproperty-icon: url("/home/ico/pay3.png");
+    qproperty-iconSize: 200px 200px;
+    qproperty-toolButtonStyle: ToolButtonTextBesideIcon;
+}
+
+/**********按钮**********/
+QPushButton {
+    font-size: 24px;
+    border: none;
+    color: rgb(29,133,165);
+    background: transparent;
+}
+QPushButton:hover {
+    color: rgb(36,164,206);
+}
+QPushButton:pressed {
+    padding-left:3px;
+    padding-top:3px;
+}
+
+
+QPushButton#btnNormal {
+    font-size: 24px;
+    border:2px solid rgb(29,133,165);
+    color: rgb(29,133,165);
+    background: transparent;
+}
+QPushButton#btnNormal:pressed {
+    padding-left:3px;
+    padding-top:3px;
+    color: rgb(255,255,255);
+    background:rgb(29,133,165);
+}
+
+
+QPushButton#btnBack {
+    font-size: 24px;
+    border: none;
+    color: rgb(255,255,255);
+    background:rgb(216,18,17);
+}
+QPushButton#btnBack:hover {
+    background:rgb(216,18,17);
+}
+QPushButton#btnBack:pressed {
+    padding-left:3px;
+    padding-top:3px;
+}
+
+
+QWidget[objectName=GoodsPresent] {
+    background: rgba(255,255,255,220);
+}
+QWidget[objectName=GoodsPresent] QLabel{
+    font-size: 22px;
+    color: rgb(29,133,165);
+    background: transparent;
+}
+QWidget[objectName=GoodsPresent] QToolButton {
+    font-size: 22px;
+    border: none;
+    color: rgb(29,133,165);
+    background: transparent;
+    qproperty-toolButtonStyle: ToolButtonTextUnderIcon;
+}
+QWidget[objectName=GoodsPresent] QToolButton:pressed{
+    color: rgb(255,255,255);
+    background: rgb(216,18,17);
+}
+
+
+QWidget[objectName=Login] {
+    border-image:url("/home/ico/wine");
+}
+
+QWidget[objectName=Replenishment] {
+    border-image:url("/home/ico/wine");
+}
+
+QWidget[objectName=DialogInstance] {
+    border-image:url(/home/ico/dialog.png);
+}
+
+
+
+/*
+QPushButton#btnA,#btnB,#btnC,#btnD,#btnE {
+    font-size: 26px;
+    border:2px solid rgb(255,255,255);
+    color: rgb(255,255,255);
+    background: transparent;
+}
+QPushButton#btnA:hover,#btnB:hover,#btnC:hover,#btnD:hover,#btnE:hover {
+    color: rgb(255,0,0);
+    border:2px solid rgb(255,0,0);
+}
+*/
+QPushButton#btnClose {
+    width:60px;
+    height:60px;
+    border-image:url("/home/ico/close.png");
+    icon-size:: 60px 60px;
+}
+QPushButton#btnClose:hover,#btnClose:pressed{
+    border-image:url("/home/ico/close1.png");
+}
+
+QPushButton#btnClose2 {
+    width:60px;
+    height:60px;
+    border-image:url("/home/ico/close_white.png");
+    icon-size:: 64px 64px;
+}
+QPushButton#btnClose2:hover,#btnClose2:pressed{
+    border-image:url("/home/ico/close_red.png");
+}
+
+QPushButton#btnLeftPage {
+    border-image:url("/home/ico/top_white.png");
+    icon-size:: 64px 64px;
+}
+QPushButton#btnLeftPage:pressed {
+    border-image:url("/home/ico/top_red.png");
+}
+QPushButton#btnRightPage {
+    border-image:url("/home/ico/bottom_white.png");
+    icon-size:: 64px 64px;
+}
+QPushButton#btnRightPage:pressed {
+    border-image:url("/home/ico/bottom_red.png");
+}
+
+QPushButton#btnSetting{
+    qproperty-icon: url("/home/ico/go_setting.png");
+    qproperty-iconSize: 60px 60px;
+}
+
+QPushButton#btnOk {
+    height: 50px;
+    color: rgb(255,255,255);
+    background: rgb(230,102,102);
+}
+QPushButton#btnCancel {
+    height: 50px;
+    color: rgb(255,255,255);
+    background: rgb(88,186,206);
+}
+QPushButton#btnCancel:enabled:hover,#btnOk:enabled:hover{
+    border: 1px solid rgb(255,0,54);
+}
+QPushButton#BtnPay {
+    font-size: 26px;
+    color: red;
+    border-radius:5px;
+    border:2px solid red;
+}
+QPushButton#BtnPay:pressed {
+    color: white;
+    background: red;
+}
+QPushButton#BtnPay:!enabled {
+    color: black;
+    border:3px solid rgb(173,173,173);
+    background: rgb(105,105,105);
+}
+
+QLineEdit {
+    font-size: 32px;
+    border: 1px solid rgb(36,164,206);
+    color: rgb(36,164,206);
+    background: rgb(255,255,255);
+}
+QLineEdit#loginQLineEdit {
+    font-size: 26px;
+    border: 0px solid rgb(255,255,255);
+    color: rgb(255,255,255);
+    background: rgba(0,0,0,50);
+}
+
+QStackedWidget {
+   background-color:rgba(0,0,0,0);
+}
+
+QListView {
+   font-size: 36px;
+   color: rgb(45,61,87);
+   background:rgb(75,108,139);
+   show-decoration-selected: 1;
+}
+QListView::item {
+   min-height:80px;
+   border-bottom: 1px solid rgb(255,255,255);
+}
+QListView::item:selected {
+   border: none;
+   background:rgb(86,181,177);
+   color: rgb(255,255,255);
+}
+QListView::item:hover {
+   background: rgb(170,219,216);
+   color: rgb(255,255,255);
+}
+
+QTableView{
+    font-size: 30px;
+    background-color: rgb(250, 250, 250);
+    alternate-background-color: rgb(172,202,206);
+    gridline-color:rgb(255,255,255);
+}
+QTableView::item:selected {
+    background: rgb(99,199,209);
+}
+
+QComboBox QAbstractItemView::item {
+    font-size: 24px;
+    height: 50px;
+}
+
+
+/*RadioButton样式设置*/
+QRadioButton::indicator {
+    width: 60px;
+    height:60px;
+}
+/*单选框未选中样式*/
+QRadioButton::indicator::unchecked {
+    border-image: url(/home/ico/radio_white_128.png);
+}
+QRadioButton::indicator::checked {
+    border-image: url(/home/ico/radio_blue_128.png);
+}
+QRadioButton{
+    spacing: 10px;
+    font-size: 24px;
+}
+
+QCheckBox {
+    spacing: 0px;
+    font-size: 24px;
+}
+QCheckBox::indicator {
+    width: 60px;
+    height:60px;
+    spacing: 0px;
+}
+QCheckBox::indicator::unchecked {
+    border-image: url(/home/ico/check_gray.png);
+}
+QCheckBox::indicator::checked {
+    border-image: url(/home/ico/check_blue.png);
+}
